@@ -47,12 +47,12 @@ Gen_TM DD2 (.st(st), .Tm(Tm),
 // Арифметический умножитель
 parameter NFce = `Fce ; // (см. CONST_XY.v)
 
-wire[`m_M-1:0]M=X*NFce;
+//wire[`m_M-1:0]M=X*NFce;
 
 // Арифметический делитель
 DIV_AB_QF DD3 (.clk(clk), 	.ok_div(ok_DIV), //Конец деления
 					.st(ce_end),.F(F), //Дробная часть частного
-					.A(M), 		.Q(Q), //Целая часть частного
-					.B(Y));
+					.A(Y), 		.Q(Q), //Целая часть частного
+					.B(X));
 
 endmodule

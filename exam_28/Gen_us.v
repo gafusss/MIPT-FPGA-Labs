@@ -1,17 +1,18 @@
 `timescale 1ns / 1ps
 
 
-module Gen_5ms(
+module Gen_us(
     input clk,
     output wire st
     );
 
-reg [17:0]cb_st = 0;
+reg [5:0]cb_st = 0;
 
-assign st = (cb_st == (250000 - 1));
+assign st = (cb_st == (50 - 1)); // T1us/Tclk = 1000 / 20 = 50
 
 always @(posedge clk) begin
 	cb_st <= st? 0 : cb_st + 1;
 end
 
 endmodule
+
